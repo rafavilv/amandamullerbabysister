@@ -289,35 +289,24 @@
       .values-panel {
         max-width: 850px;
         margin: 0 auto;
-        padding: clamp(24px, 5vw, 42px);
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background: var(--paper);
       }
 
-      .values-rates {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .values-rates p {
+      .values-copy p {
         margin: 0;
-        padding: 19px 22px;
-        border-radius: 13px;
-        background: var(--cream);
-        color: var(--ink);
-        font-family: var(--serif);
-        font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-      }
-
-      .values-note {
-        margin: 23px 0 0;
         color: var(--muted);
       }
 
-      .values-note + .values-note {
+      .values-copy p + p {
         margin-top: 12px;
+      }
+
+      .values-copy .values-rate {
+        color: var(--ink);
+        font-weight: 650;
+      }
+
+      .values-note {
+        margin-top: 12px !important;
       }
 
       .portfolio {
@@ -593,14 +582,14 @@
             <h2 id="values-title">Valores</h2>
           </div>
           <div class="values-panel">
-            <div class="values-rates">
-              <p>1 criança: R$ 30 por hora</p>
-              <p>2 crianças: R$ 45 por hora</p>
-            </div>
-            <p class="values-note">🚗 Deslocamento: o valor do Uber de ida e volta é cobrado separadamente.</p>
-            <p class="values-note">
+            <div class="values-copy">
+              <p class="values-rate">1 criança: R$ 30 por hora</p>
+              <p class="values-rate">2 crianças: R$ 45 por hora</p>
+              <p>🚗 Deslocamento: o valor do Uber de ida e volta é cobrado separadamente.</p>
+              <p>
               Os valores podem ser informados e combinados previamente antes do atendimento, para que tudo fique claro para ambas as partes.
-            </p>
+              </p>
+            </div>
           </div>
         </section>
 
@@ -636,21 +625,28 @@
               </div>
             </article>
             <article class="work-card">
-              <div class="work-art three" aria-hidden="true">♡</div>
+              <img
+                class="work-photo"
+                src="imagens/historias-e-encontros.png"
+                alt="Amanda acolhendo uma criança durante um momento de interação"
+              />
               <div class="work-caption">
                 <h3>Histórias e encontros</h3>
                 <p>Leitura e imaginação</p>
               </div>
             </article>
             <article class="work-card">
-              <div class="work-art four" aria-hidden="true">✳</div>
+              <img
+                class="work-photo"
+                src="imagens/pequenas-conquistas.png"
+                alt="Amanda acompanhando uma criança durante uma atividade"
+              />
               <div class="work-caption">
                 <h3>Pequenas conquistas</h3>
                 <p>Aprendizagens do cotidiano</p>
               </div>
             </article>
           </div>
-          <p class="gallery-note">Você pode trocar as outras ilustrações por fotos dos seus projetos e atividades.</p>
         </section>
 
         <section class="section contact" id="contato" aria-labelledby="contact-title">
