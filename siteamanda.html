@@ -203,40 +203,13 @@
         transform: rotate(4deg);
       }
 
-      .photo-placeholder {
-        display: flex;
-        min-height: 430px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 30px;
-        border: 1px dashed #b98e84;
+      .hero-photo {
+        display: block;
+        width: 100%;
+        height: 430px;
         border-radius: 48% 48% 20px 20px;
-        background:
-          radial-gradient(ellipse at 50% 34%, rgba(255, 253, 250, 0.88), transparent 49%),
-          linear-gradient(155deg, #f3e5dc, #e6cfc4);
-        color: var(--rose);
-        text-align: center;
-      }
-
-      .photo-placeholder svg {
-        width: 66px;
-        height: 66px;
-        margin-bottom: 17px;
-      }
-
-      .photo-placeholder strong {
-        color: var(--ink);
-        font-family: var(--serif);
-        font-size: 1.45rem;
-        font-weight: 500;
-      }
-
-      .photo-placeholder span {
-        max-width: 220px;
-        margin-top: 6px;
-        color: var(--muted);
-        font-size: 0.83rem;
+        object-fit: cover;
+        object-position: center 38%;
       }
 
       .photo-note {
@@ -286,29 +259,13 @@
         margin: 0 auto;
       }
 
-      .about-art {
-        display: grid;
-        min-height: 285px;
-        place-items: center;
+      .about-photo {
+        display: block;
+        width: 100%;
+        height: 340px;
         border-radius: 48% 48% 20px 20px;
-        background:
-          radial-gradient(circle at 50% 40%, #fffdfa 0 18%, transparent 18.5%),
-          radial-gradient(ellipse at 50% 54%, #e8d2c8 0 38%, transparent 38.5%),
-          var(--sage);
-        color: var(--rose);
-      }
-
-      .about-art span {
-        display: grid;
-        width: 82px;
-        height: 82px;
-        place-items: center;
-        border: 1px solid rgb(169 104 97 / 45%);
-        border-radius: 50%;
-        background: var(--paper);
-        font-family: var(--serif);
-        font-size: 1.8rem;
-        font-style: italic;
+        object-fit: cover;
+        object-position: center 28%;
       }
 
       .about-copy h2 {
@@ -329,44 +286,38 @@
         font-style: italic;
       }
 
-      .pillars {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-        max-width: 1000px;
+      .values-panel {
+        max-width: 850px;
         margin: 0 auto;
-      }
-
-      .pillar {
-        padding: 28px 25px;
+        padding: clamp(24px, 5vw, 42px);
         border: 1px solid var(--line);
-        border-radius: 16px;
+        border-radius: 20px;
         background: var(--paper);
-        text-align: center;
       }
 
-      .pillar-mark {
+      .values-rates {
         display: grid;
-        width: 48px;
-        height: 48px;
-        margin: 0 auto 17px;
-        place-items: center;
-        border-radius: 50%;
-        background: var(--sage);
-        color: var(--rose);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .values-rates p {
+        margin: 0;
+        padding: 19px 22px;
+        border-radius: 13px;
+        background: var(--cream);
+        color: var(--ink);
         font-family: var(--serif);
-        font-size: 1.4rem;
+        font-size: clamp(1.15rem, 2.5vw, 1.4rem);
       }
 
-      .pillar h3 {
-        margin-bottom: 9px;
-        font-size: 1.35rem;
-      }
-
-      .pillar p {
-        margin-bottom: 0;
+      .values-note {
+        margin: 23px 0 0;
         color: var(--muted);
-        font-size: 0.9rem;
+      }
+
+      .values-note + .values-note {
+        margin-top: 12px;
       }
 
       .portfolio {
@@ -390,11 +341,23 @@
 
       .work-art {
         display: grid;
-        min-height: 185px;
+        aspect-ratio: 4 / 5;
         place-items: center;
         color: var(--rose);
         font-family: var(--serif);
         font-size: 3rem;
+      }
+
+      .work-photo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        object-position: center 30%;
+      }
+
+      .work-photo.explorar-photo {
+        object-position: center 45%;
       }
 
       .work-art.one {
@@ -503,8 +466,8 @@
           width: min(100%, 360px);
         }
 
-        .photo-placeholder {
-          min-height: 370px;
+        .hero-photo {
+          height: 370px;
         }
 
         .section {
@@ -516,13 +479,13 @@
           gap: 30px;
         }
 
-        .about-art {
-          min-height: 220px;
+        .about-photo {
+          height: 280px;
         }
 
-        .pillars {
+        .values-rates {
           grid-template-columns: 1fr;
-          gap: 14px;
+          gap: 12px;
         }
 
         .gallery {
@@ -553,10 +516,6 @@
           gap: 11px;
         }
 
-        .work-art {
-          min-height: 145px;
-        }
-
         .work-caption {
           padding: 12px;
         }
@@ -581,7 +540,7 @@
         </a>
         <nav class="nav" aria-label="Navegação principal">
           <a href="#sobre">Sobre mim</a>
-          <a href="#educacao">Meu olhar</a>
+          <a href="#valores">Valores</a>
           <a href="#trabalhos">Vivências</a>
           <a class="nav-contact" href="#contato">Contato</a>
         </nav>
@@ -600,71 +559,48 @@
           </div>
 
           <div class="photo-wrap">
-            <div class="photo-placeholder" role="img" aria-label="Espaço reservado para sua foto">
-              <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-                <circle cx="32" cy="23" r="11" stroke="currentColor" stroke-width="1.7" />
-                <path
-                  d="M12 54c2.8-11 9.5-16.5 20-16.5S49.2 43 52 54"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-width="1.7"
-                />
-                <path
-                  d="M8 12c5 0 7 3 7 7-5 0-7-3-7-7Zm40-4c0 5-3 7-7 7 0-5 3-7 7-7Z"
-                  fill="currentColor"
-                  opacity=".55"
-                />
-              </svg>
-              <strong>Sua foto aqui</strong>
-              <span>Este espaço está reservado para o seu retrato</span>
-            </div>
+            <img class="hero-photo" src="imagens/amanda.jpeg" alt="Retrato de Amanda Muller" />
             <span class="photo-note">Um prazer, sou a Amanda!</span>
           </div>
         </section>
 
         <section class="section about" id="sobre" aria-labelledby="about-title">
           <div class="about-grid">
-            <div class="about-art" aria-hidden="true"><span>A.</span></div>
+            <img
+              class="about-photo"
+              src="imagens/amanda-com-crianca.jpeg"
+              alt="Amanda em uma atividade de educação infantil, com o rosto da criança oculto"
+            />
             <div class="about-copy">
               <p class="eyebrow">Um pouco sobre mim</p>
-              <h2 id="about-title">Cuidar também é ensinar.</h2>
+              <h2 id="about-title">Olá! Eu sou a Amanda.</h2>
               <p>
-                Sou Amanda Muller, educadora infantil. Meu trabalho nasce do respeito ao tempo
-                de cada criança e da curiosidade que move tantas descobertas no dia a dia.
+                Sou babá e trabalho com crianças há aproximadamente 3 anos. Atualmente, também
+                trabalho na área da educação infantil, atuando no berçário, e estou cursando Pedagogia.
               </p>
               <p>
-                Acredito que aprender pode acontecer com leveza: numa história compartilhada,
-                numa brincadeira inventada ou na alegria de tentar algo novo.
+                Sou uma pessoa muito carinhosa, cuidadosa, responsável e atenciosa. Acredito que
+                cada criança é única e, por isso, procuro sempre respeitar o seu tempo, rotina,
+                necessidades e individualidade.
               </p>
               <p class="about-note">Cada infância merece ser acolhida e celebrada.</p>
             </div>
           </div>
         </section>
 
-        <section class="section" id="educacao" aria-labelledby="education-title">
+        <section class="section" id="valores" aria-labelledby="values-title">
           <div class="section-heading">
-            <p class="eyebrow">O que guia meu trabalho</p>
-            <h2 id="education-title">Uma infância com espaço para crescer</h2>
-            <p>
-              Um olhar atento para as necessidades, ideias e descobertas de cada criança.
-            </p>
+            <h2 id="values-title">Valores</h2>
           </div>
-          <div class="pillars">
-            <article class="pillar">
-              <span class="pillar-mark" aria-hidden="true">♡</span>
-              <h3>Vínculos e afeto</h3>
-              <p>Relações acolhedoras ajudam a criar confiança para explorar o mundo.</p>
-            </article>
-            <article class="pillar">
-              <span class="pillar-mark" aria-hidden="true">✳</span>
-              <h3>Brincar e descobrir</h3>
-              <p>A brincadeira abre caminhos para imaginar, experimentar e aprender.</p>
-            </article>
-            <article class="pillar">
-              <span class="pillar-mark" aria-hidden="true">☼</span>
-              <h3>Respeito aos ritmos</h3>
-              <p>Cada criança tem seu próprio jeito e tempo de florescer.</p>
-            </article>
+          <div class="values-panel">
+            <div class="values-rates">
+              <p>1 criança: R$ 30 por hora</p>
+              <p>2 crianças: R$ 45 por hora</p>
+            </div>
+            <p class="values-note">🚗 Deslocamento: o valor do Uber de ida e volta é cobrado separadamente.</p>
+            <p class="values-note">
+              Os valores podem ser informados e combinados previamente antes do atendimento, para que tudo fique claro para ambas as partes.
+            </p>
           </div>
         </section>
 
@@ -678,14 +614,22 @@
           </div>
           <div class="gallery">
             <article class="work-card">
-              <div class="work-art one" aria-hidden="true">✿</div>
+              <img
+                class="work-photo"
+                src="imagens/brincar-e-imaginar.png"
+                alt="Amanda fantasiada de fada brincando com uma criança fantasiada"
+              />
               <div class="work-caption">
                 <h3>Brincar e imaginar</h3>
                 <p>Atividades lúdicas</p>
               </div>
             </article>
             <article class="work-card">
-              <div class="work-art two" aria-hidden="true">⌁</div>
+              <img
+                class="work-photo explorar-photo"
+                src="imagens/explorar-sentidos.png"
+                alt="Amanda em um momento de carinho e interação com uma criança"
+              />
               <div class="work-caption">
                 <h3>Explorar sentidos</h3>
                 <p>Descobertas e experiências</p>
@@ -706,7 +650,7 @@
               </div>
             </article>
           </div>
-          <p class="gallery-note">Troque os espaços ilustrados por fotos dos seus projetos e atividades.</p>
+          <p class="gallery-note">Você pode trocar as outras ilustrações por fotos dos seus projetos e atividades.</p>
         </section>
 
         <section class="section contact" id="contato" aria-labelledby="contact-title">
@@ -715,13 +659,12 @@
             <h2 id="contact-title">Toda boa parceria começa com um encontro.</h2>
             <p>Entre em contato para conhecer melhor meu trabalho.</p>
           </div>
-          <a class="contact-link" href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
-          <p class="contact-hint">Substitua este endereço pelo seu e-mail de contato.</p>
+          <a class="contact-link" href="tel:+5500000000000">+55 47 99198‑0084</a>
         </section>
       </main>
 
       <footer class="footer">
-        <p>Feito com carinho por Amanda Muller · Educação infantil</p>
+        <p>Feito por Rafaela Vilvert</p>
       </footer>
     </div>
   </body>
