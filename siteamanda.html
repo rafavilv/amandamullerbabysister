@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conheça o trabalho de Amanda Muller, educadora infantil. Aprender, brincar e crescer com afeto."
+    />
+    <meta name="theme-color" content="#f8f3ef" />
+    <title>Amanda Muller | Educação infantil com afeto</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #41352f;
+        --muted: #76675f;
+        --rose: #a96861;
+        --rose-light: #ead4cc;
+        --cream: #f8f3ef;
+        --paper: #fffdfa;
+        --sage: #dce2d4;
+        --line: #e9dfd8;
+        --serif: Georgia, "Times New Roman", serif;
+        --sans: "Segoe UI", Arial, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: var(--sans);
+        line-height: 1.65;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--rose);
+        outline-offset: 4px;
+      }
+
+      .site {
+        width: min(1200px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        min-height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 1.22rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 36px;
+        height: 36px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--rose);
+        color: white;
+        font-family: var(--sans);
+        font-size: 0.85rem;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: clamp(16px, 3vw, 36px);
+        font-size: 0.88rem;
+      }
+
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 180ms ease;
+      }
+
+      .nav a:hover {
+        color: var(--rose);
+      }
+
+      .nav .nav-contact {
+        padding: 10px 18px;
+        border: 1px solid var(--rose);
+        border-radius: 999px;
+        color: var(--rose);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: clamp(44px, 8vw, 104px);
+        min-height: 590px;
+        padding: 46px 7% 76px;
+      }
+
+      .eyebrow {
+        margin: 0 0 17px;
+        color: var(--rose);
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+      }
+
+      h1 {
+        max-width: 610px;
+        margin-bottom: 22px;
+        font-size: clamp(3.35rem, 7vw, 6.2rem);
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+      }
+
+      h1 span {
+        color: var(--rose);
+        font-style: italic;
+      }
+
+      .hero-copy {
+        max-width: 490px;
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: 1.04rem;
+        line-height: 1.85;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 48px;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 21px;
+        border: 1px solid var(--rose);
+        border-radius: 999px;
+        background: var(--rose);
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 650;
+        text-decoration: none;
+        transition: background 180ms ease, transform 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        background: #8e554f;
+      }
+
+      .photo-wrap {
+        position: relative;
+        width: min(100%, 410px);
+        justify-self: center;
+        padding: 20px;
+      }
+
+      .photo-wrap::before {
+        position: absolute;
+        z-index: -1;
+        inset: 0 0 8% 8%;
+        border-radius: 48% 48% 24px 24px;
+        background: var(--rose-light);
+        content: "";
+        transform: rotate(4deg);
+      }
+
+      .photo-placeholder {
+        display: flex;
+        min-height: 430px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        border: 1px dashed #b98e84;
+        border-radius: 48% 48% 20px 20px;
+        background:
+          radial-gradient(ellipse at 50% 34%, rgba(255, 253, 250, 0.88), transparent 49%),
+          linear-gradient(155deg, #f3e5dc, #e6cfc4);
+        color: var(--rose);
+        text-align: center;
+      }
+
+      .photo-placeholder svg {
+        width: 66px;
+        height: 66px;
+        margin-bottom: 17px;
+      }
+
+      .photo-placeholder strong {
+        color: var(--ink);
+        font-family: var(--serif);
+        font-size: 1.45rem;
+        font-weight: 500;
+      }
+
+      .photo-placeholder span {
+        max-width: 220px;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.83rem;
+      }
+
+      .photo-note {
+        position: absolute;
+        right: 0;
+        bottom: 1px;
+        padding: 10px 15px;
+        border-radius: 999px;
+        background: var(--paper);
+        box-shadow: 0 8px 26px rgb(65 53 47 / 10%);
+        color: var(--muted);
+        font-size: 0.76rem;
+      }
+
+      .section {
+        padding: 88px 7%;
+      }
+
+      .section-heading {
+        max-width: 680px;
+        margin: 0 auto 42px;
+        text-align: center;
+      }
+
+      .section-heading h2 {
+        margin-bottom: 13px;
+        font-size: clamp(2.3rem, 4vw, 3.5rem);
+        letter-spacing: -0.04em;
+        line-height: 1.08;
+      }
+
+      .section-heading > p:last-child {
+        margin-bottom: 0;
+        color: var(--muted);
+      }
+
+      .about {
+        background: var(--paper);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        align-items: center;
+        gap: clamp(36px, 8vw, 100px);
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
+      .about-art {
+        display: grid;
+        min-height: 285px;
+        place-items: center;
+        border-radius: 48% 48% 20px 20px;
+        background:
+          radial-gradient(circle at 50% 40%, #fffdfa 0 18%, transparent 18.5%),
+          radial-gradient(ellipse at 50% 54%, #e8d2c8 0 38%, transparent 38.5%),
+          var(--sage);
+        color: var(--rose);
+      }
+
+      .about-art span {
+        display: grid;
+        width: 82px;
+        height: 82px;
+        place-items: center;
+        border: 1px solid rgb(169 104 97 / 45%);
+        border-radius: 50%;
+        background: var(--paper);
+        font-family: var(--serif);
+        font-size: 1.8rem;
+        font-style: italic;
+      }
+
+      .about-copy h2 {
+        margin-bottom: 17px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+      }
+
+      .about-copy p {
+        color: var(--muted);
+      }
+
+      .about-copy .about-note {
+        margin-bottom: 0;
+        color: var(--rose);
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        font-style: italic;
+      }
+
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .pillar {
+        padding: 28px 25px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--paper);
+        text-align: center;
+      }
+
+      .pillar-mark {
+        display: grid;
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 17px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--sage);
+        color: var(--rose);
+        font-family: var(--serif);
+        font-size: 1.4rem;
+      }
+
+      .pillar h3 {
+        margin-bottom: 9px;
+        font-size: 1.35rem;
+      }
+
+      .pillar p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .portfolio {
+        background: #f1e7e1;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .work-card {
+        overflow: hidden;
+        border-radius: 13px;
+        background: var(--paper);
+        box-shadow: 0 8px 24px rgb(65 53 47 / 6%);
+      }
+
+      .work-art {
+        display: grid;
+        min-height: 185px;
+        place-items: center;
+        color: var(--rose);
+        font-family: var(--serif);
+        font-size: 3rem;
+      }
+
+      .work-art.one {
+        background: linear-gradient(145deg, #e5d9c8, #f6eee5);
+      }
+
+      .work-art.two {
+        background: linear-gradient(145deg, #dce2d4, #eff0e8);
+      }
+
+      .work-art.three {
+        background: linear-gradient(145deg, #efd9d0, #f8ece5);
+      }
+
+      .work-art.four {
+        background: linear-gradient(145deg, #e4dbe8, #f1edf2);
+      }
+
+      .work-caption {
+        padding: 15px 16px 18px;
+      }
+
+      .work-caption h3 {
+        margin-bottom: 3px;
+        font-size: 1.15rem;
+      }
+
+      .work-caption p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .gallery-note {
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+        text-align: center;
+      }
+
+      .contact {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        background: var(--paper);
+        text-align: center;
+      }
+
+      .contact .section-heading {
+        margin-bottom: 23px;
+      }
+
+      .contact-link {
+        color: var(--rose);
+        font-weight: 650;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
+      .contact-hint {
+        margin: 13px 0 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .footer {
+        padding: 22px 10px 28px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-align: center;
+      }
+
+      .footer p {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 760px) {
+        .site {
+          width: min(100% - 32px, 600px);
+        }
+
+        .topbar {
+          min-height: 0;
+          flex-direction: column;
+          gap: 17px;
+          padding: 21px 0;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 12px 20px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 38px;
+          min-height: 0;
+          padding: 44px 5% 64px;
+        }
+
+        .hero-copy {
+          max-width: 560px;
+        }
+
+        .photo-wrap {
+          width: min(100%, 360px);
+        }
+
+        .photo-placeholder {
+          min-height: 370px;
+        }
+
+        .section {
+          padding: 68px 5%;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .about-art {
+          min-height: 220px;
+        }
+
+        .pillars {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 420px) {
+        .site {
+          width: calc(100% - 24px);
+        }
+
+        .nav {
+          gap: 10px 14px;
+          font-size: 0.81rem;
+        }
+
+        .hero {
+          padding-right: 2%;
+          padding-left: 2%;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 14vw, 4rem);
+        }
+
+        .gallery {
+          gap: 11px;
+        }
+
+        .work-art {
+          min-height: 145px;
+        }
+
+        .work-caption {
+          padding: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header class="topbar">
+        <a class="brand" href="#inicio" aria-label="Amanda Muller, início">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span>Amanda Muller</span>
+        </a>
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#sobre">Sobre mim</a>
+          <a href="#educacao">Meu olhar</a>
+          <a href="#trabalhos">Vivências</a>
+          <a class="nav-contact" href="#contato">Contato</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="inicio" aria-labelledby="hero-title">
+          <div class="hero-content">
+            <p class="eyebrow">Educadora infantil</p>
+            <h1 id="hero-title">Aprender, brincar, <span>florescer.</span></h1>
+            <p class="hero-copy">
+              A infância é feita de descobertas, vínculos e pequenas grandes conquistas.
+              Acredito em uma educação com afeto, escuta e espaço para cada criança ser quem é.
+            </p>
+            <a class="button" href="#sobre">Conheça meu trabalho</a>
+          </div>
+
+          <div class="photo-wrap">
+            <div class="photo-placeholder" role="img" aria-label="Espaço reservado para sua foto">
+              <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="23" r="11" stroke="currentColor" stroke-width="1.7" />
+                <path
+                  d="M12 54c2.8-11 9.5-16.5 20-16.5S49.2 43 52 54"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="1.7"
+                />
+                <path
+                  d="M8 12c5 0 7 3 7 7-5 0-7-3-7-7Zm40-4c0 5-3 7-7 7 0-5 3-7 7-7Z"
+                  fill="currentColor"
+                  opacity=".55"
+                />
+              </svg>
+              <strong>Sua foto aqui</strong>
+              <span>Este espaço está reservado para o seu retrato</span>
+            </div>
+            <span class="photo-note">Um prazer, sou a Amanda!</span>
+          </div>
+        </section>
+
+        <section class="section about" id="sobre" aria-labelledby="about-title">
+          <div class="about-grid">
+            <div class="about-art" aria-hidden="true"><span>A.</span></div>
+            <div class="about-copy">
+              <p class="eyebrow">Um pouco sobre mim</p>
+              <h2 id="about-title">Cuidar também é ensinar.</h2>
+              <p>
+                Sou Amanda Muller, educadora infantil. Meu trabalho nasce do respeito ao tempo
+                de cada criança e da curiosidade que move tantas descobertas no dia a dia.
+              </p>
+              <p>
+                Acredito que aprender pode acontecer com leveza: numa história compartilhada,
+                numa brincadeira inventada ou na alegria de tentar algo novo.
+              </p>
+              <p class="about-note">Cada infância merece ser acolhida e celebrada.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="educacao" aria-labelledby="education-title">
+          <div class="section-heading">
+            <p class="eyebrow">O que guia meu trabalho</p>
+            <h2 id="education-title">Uma infância com espaço para crescer</h2>
+            <p>
+              Um olhar atento para as necessidades, ideias e descobertas de cada criança.
+            </p>
+          </div>
+          <div class="pillars">
+            <article class="pillar">
+              <span class="pillar-mark" aria-hidden="true">♡</span>
+              <h3>Vínculos e afeto</h3>
+              <p>Relações acolhedoras ajudam a criar confiança para explorar o mundo.</p>
+            </article>
+            <article class="pillar">
+              <span class="pillar-mark" aria-hidden="true">✳</span>
+              <h3>Brincar e descobrir</h3>
+              <p>A brincadeira abre caminhos para imaginar, experimentar e aprender.</p>
+            </article>
+            <article class="pillar">
+              <span class="pillar-mark" aria-hidden="true">☼</span>
+              <h3>Respeito aos ritmos</h3>
+              <p>Cada criança tem seu próprio jeito e tempo de florescer.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section portfolio" id="trabalhos" aria-labelledby="work-title">
+          <div class="section-heading">
+            <p class="eyebrow">Ideias para compartilhar</p>
+            <h2 id="work-title">Vivências e descobertas</h2>
+            <p>
+              Um espaço para você apresentar atividades, projetos e momentos especiais do seu trabalho.
+            </p>
+          </div>
+          <div class="gallery">
+            <article class="work-card">
+              <div class="work-art one" aria-hidden="true">✿</div>
+              <div class="work-caption">
+                <h3>Brincar e imaginar</h3>
+                <p>Atividades lúdicas</p>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-art two" aria-hidden="true">⌁</div>
+              <div class="work-caption">
+                <h3>Explorar sentidos</h3>
+                <p>Descobertas e experiências</p>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-art three" aria-hidden="true">♡</div>
+              <div class="work-caption">
+                <h3>Histórias e encontros</h3>
+                <p>Leitura e imaginação</p>
+              </div>
+            </article>
+            <article class="work-card">
+              <div class="work-art four" aria-hidden="true">✳</div>
+              <div class="work-caption">
+                <h3>Pequenas conquistas</h3>
+                <p>Aprendizagens do cotidiano</p>
+              </div>
+            </article>
+          </div>
+          <p class="gallery-note">Troque os espaços ilustrados por fotos dos seus projetos e atividades.</p>
+        </section>
+
+        <section class="section contact" id="contato" aria-labelledby="contact-title">
+          <div class="section-heading">
+            <p class="eyebrow">Vamos conversar?</p>
+            <h2 id="contact-title">Toda boa parceria começa com um encontro.</h2>
+            <p>Entre em contato para conhecer melhor meu trabalho.</p>
+          </div>
+          <a class="contact-link" href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a>
+          <p class="contact-hint">Substitua este endereço pelo seu e-mail de contato.</p>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Feito com carinho por Amanda Muller · Educação infantil</p>
+      </footer>
+    </div>
+  </body>
+</html>
